@@ -43,7 +43,7 @@ var tab_status_to_work_with             = "loading";                            
 
 // prints debugging messages
 function debug(message, status){
-    var doDebug = false;                                                                                                                    // if 'true' then print message, if 'false' do not
+    var doDebug = true;                                                                                                                    // if 'true' then print message, if 'false' do not
 
     if (doDebug){
         if (status === tab_status_to_work_with){                                                                                            // to minimise output when debugging, we can ignore printing for some tab statuses
@@ -127,6 +127,7 @@ function urlCheck(tabId, changeInfo, tab) {
     var googleLogoutRegExp      = new RegExp("^http(s)?://(www.)?google.\\w{2,3}(.\\w{2,3})?/accounts/Logout");
     var googleFlightsRegExp     = new RegExp("^http(s)?://(www.)?google.\\w{2,3}(.\\w{2,3})?/flights");
     var chromeExtRegExp         = new RegExp("^chrome");
+    var googleOrgRegExp         = new RegExp("^http(s)?://(www.)?google.org");
     var bloggerBareDomainRegExp = new RegExp("^http(s)?://(www.)?blogspot.\\w{2,3}");
     var mapsTldRedirectRegExp   = new RegExp("^http(s)?://(www.)?google.\\w{2,3}(.\\w{2,3})?/maps\\?");                                     // endless loops created by jumping to "https://www.google.com/maps?source=tldsi&hl=en" (NCR-13)
     var ncrDisabledRegExp       = new RegExp("ncr_disabled");
@@ -148,6 +149,12 @@ function urlCheck(tabId, changeInfo, tab) {
     // stop the extension if the tab is a chrome page (like new tab, or settings page), instead of a normal web page
     if ( tab.url.match(chromeExtRegExp) ){
         debug("STOP : we have a chrome page", changeInfo.status);
+        return;
+    }
+
+    // stop the extension if the url matches google.org (issue #27)
+    if ( tab.url.match(googleOrgRegExp) ){
+        debug("STOP : no redirect for google.org domains", changeInfo.status);
         return;
     }
 
@@ -222,9 +229,17 @@ function urlCheck(tabId, changeInfo, tab) {
 
     debug("urlCheck(\""+tab.url+"\")", changeInfo.status);
 
-    // we only want to process with the URL as long at is not an already .com URL
-    // and if it is not a country specific google logout link
-    if ( !(tab.url.match(ncrComRegExp)) && !(tab.url.match(googleLogoutRegExp)) && !(tab.url.match(bloggerBareDomainRegExp)) && !(tab.url.match(mapsTldRedirectRegExp)) ){
+    // we avoid processing the url if it is a:
+    // - .com URL (ncrComRegExp)
+    // - google logout page (googleLogoutRegExp)
+    // - blogspot root domain (bloggerBareDomainRegExp)
+    // - special google maps url, used for redirecting users (mapsTldRedirectRegExp)
+    if (
+           !(tab.url.match(ncrComRegExp))
+        && !(tab.url.match(googleLogoutRegExp))
+        && !(tab.url.match(bloggerBareDomainRegExp))
+        && !(tab.url.match(mapsTldRedirectRegExp))
+    ){
         for(i = 0; i < regExpUrlsToCheck.length; i++) {                                                                                     // loop through all URLs to check
             debug("regExpUrlsToCheck["+i+"] = " + regExpUrlsToCheck[i], changeInfo.status);
 
@@ -299,7 +314,7 @@ function urlCheck(tabId, changeInfo, tab) {
             }
         }
     } else {                                                                                                                                // if we have a ncr match
-        debug("DONE : url gives ncr match, or exception - we change nothing!", changeInfo.status);
+        debug("DEBUG : DONE with no changes made!", changeInfo.status);
     }
 }
 
