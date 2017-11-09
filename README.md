@@ -21,7 +21,6 @@ Revisions
 Issues
 ------
 [![open issues](https://img.shields.io/github/issues/klevstul/NoCountryRedirect.svg)](https://github.com/klevstul/NoCountryRedirect/issues)
-
 [![closed issues](https://img.shields.io/github/issues-closed/klevstul/NoCountryRedirect.svg)](https://github.com/klevstul/NoCountryRedirect/issues?q=is%3Aissue+is%3Aclosed)
 
 Last release
