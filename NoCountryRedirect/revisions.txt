@@ -31,8 +31,10 @@ https://klevstul.myjetbrains.com/youtrack/issues?q=project%3A+NoCountryRedirect
 
 
 *** REVISION HISTORY ***
-// 2017.11.09 : 1.7.1711 : frode klevstul : xxx
-
+// 2017.11.09 : 1.7.1711 : frode klevstul : started using a customised version of bootstrap for saving space (#30)
+// 2017.11.09 : 1.7.1711 : frode klevstul : added info about recent changes to google search (#29)
+// 2017.11.09 : 1.7.1711 : frode klevstul : added additional info on avoiding redirects (#28)
+// 2017.11.09 : 1.7.1711 : frode klevstul : disable google.org redirects (#27)
 // 2017.01.29 : 1.6.1701 : frode klevstul : added support for google scholar (#16)
 // 2017.01.29 : 1.6.1701 : frode klevstul : improved information about "local mode" on options page
 // 2017.01.29 : 1.6.1701 : frode klevstul : upgraded bootstrap from v3.3.6 to v3.3.7
@@ -72,7 +74,7 @@ https://klevstul.myjetbrains.com/youtrack/issues?q=project%3A+NoCountryRedirect
 // 2012.08.23 : 0.4.1208 : frode klevstul : blogspot subdomains containing dashes (like-this.blogspot.in) were not NCR'ified - now fixed
 // 2012.08.22 : 0.3.1208 : frode klevstul : optimised code using a tab's statusInfo
 // 2012.08.22 : 0.3.1208 : frode klevstul : main parts of the extension re-written to fix more bugs and clean up code
-// 2012.08.18 : 0.2.1208 : frode klevstul : found some regexp bug that got fixed
+// 2012.08.18 : 0.2.1208 : frode klevstul : found a regexp bug that got fixed
 // 2012.08.18 : 0.1.1208 : frode klevstul : had forgotten domains on the form .co.uk, .co.id (2x2 tld), so fixed that bug
 // 2012.08.18 : 0.1.1208 : frode klevstul : disabled the options page for this version, implemented new logos
 // 2012.08.17 : 0.1.1208 : frode klevstul : started developing an options page
