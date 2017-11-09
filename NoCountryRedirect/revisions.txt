@@ -8,10 +8,11 @@ Some features:
 - You can whitelist Google domains that you do not want to have "NCRified" (new from version 0.7.1409).
 
 A few things this extension don't do:
+- This location does not change the search region (for details please visit https://github.com/klevstul/NoCountryRedirect/issues/29).
 - This extension do not change your language preferences to English. If you want to change the language settings for Google products please go to:
 https://myaccount.google.com/preferences?pli=1#localization
 (https://myaccount.google.com/preferences)
-- This extension do not alter location settings (geo location) in any way.
+- This extension does not alter location settings (geo location) in any way.
 
 
 *** SOURCE CODE ****
@@ -30,6 +31,8 @@ https://klevstul.myjetbrains.com/youtrack/issues?q=project%3A+NoCountryRedirect
 
 
 *** REVISION HISTORY ***
+// 2017.11.09 : 1.7.1711 : frode klevstul : xxx
+
 // 2017.01.29 : 1.6.1701 : frode klevstul : added support for google scholar (#16)
 // 2017.01.29 : 1.6.1701 : frode klevstul : improved information about "local mode" on options page
 // 2017.01.29 : 1.6.1701 : frode klevstul : upgraded bootstrap from v3.3.6 to v3.3.7

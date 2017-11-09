@@ -70,13 +70,7 @@
                 <div class="panel-body">
                     <p>
                         Example:<br/>
-                        If you set this value to "co.kr", you will be go to "google.co.kr" if opening a local version of the search page when in South Korea.<br/>
-                    </p>
-                    <p>
-                        Note:<br/>
-                        Local domain setting has to represent the country you are in. The reason being is that when
-                        you are in local mode, NCR is disabled. Hence Google will redirect you to your own country
-                        specific domain.
+                        If you set this value to "co.kr", you will be go to "google.co.kr" when chosing "Open local" mode from the NCR popup.<br/>
                     </p>
                 </div>
             </div>
@@ -155,6 +149,27 @@
 
         <div class="row">
             <div class="panel panel-default">
+                <div class="panel-heading">Changes to Google Search</div>
+                <div class="panel-body">
+                    <h4>Search results are no longer determined by the top-level domain</h4>
+                    <p>In October 2017 Google changed the way search works. Unfortunately, users are no longer able to change domain to search different countries. That means this extension has become less useful than it used to be. Sorry, but there is nothing this extension can do to fix this.</p>
+                    <br>
+                    <h4>Workaround</h4>
+                    <p>Update "Region Settings" in <a href="https://www.google.com/preferences?hl=en&fg=1" target="_blank">search preferences</a>. The selected region will affect the results provided by Google Search.</p>
+                    <p><b>To receive search results as provided in the US set the region to "United States".</b> Doing this NCR will behave like earlier.</p>
+                    <br>
+                    <h4>References</h4>
+                    <ul>
+                        <li><a href="https://www.blog.google/products/search/making-search-results-more-local-and-relevant/" target="_blank">Making search results more local and relevant</a></li>
+                        <li><a href="https://www.theverge.com/2017/10/27/16561848/google-search-always-local-results-ignores-domain" target="_blank">Google no longer lets you change domains to search different countries</a></li>
+                        <li><a href="https://github.com/klevstul/NoCountryRedirect/issues/29" target="_blank">Related NCR issue on this topic</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-default">
                 <div class="panel-heading">Avoiding multiple redirects</div>
                 <div class="panel-body">
                     <p>Users of this extension might experience multiple redirects doing Google searches.</p>
@@ -164,7 +179,25 @@
                         <li>google.com redirects the user to country specific top level domain, like google.co.jp</li>
                         <li>The NCR extension redirects the user back to google.com</li>
                     </ul>
-                    <p>Below are a few workarounds for avoiding this annoyance.</p>
+                    <p>Below are a few possible workarounds for avoiding this annoyance.</p>
+                    <br>
+                    <h4>google.com/search?</h4>
+                    <p>Use google.com as default search engine (see above section on how to update the search engine).</p>
+                    <ul>
+                        <li>Right click in the Chrome address bar / omnibox.</li>
+                        <li>Chose the "Edit search engines..." option.</li>
+                        <li>Edit your default search engine and set the search URL to:</li>
+                        <p><code>https://www.google.com/search?hl=en&q=%s&?gfe_rd=cr&gws_rd=cr</code></p>
+                    </ul>
+                    <br>
+                    <h4>encrypted.google.com</h4>
+                    <p>Update your default search engine to <a href="https://encrypted.google.com" target="_blank">encrypted.google.com</a>.</p>
+                    <ul>
+                        <li>Right click in the Chrome address bar / omnibox.</li>
+                        <li>Chose the "Edit search engines..." option.</li>
+                        <li>Edit your default search engine and set the search URL to:</li>
+                        <p><code>https://encrypted.google.com/search?hl=en&q=%s</code></p>
+                    </ul>
                     <br>
                     <h4>google.com/ncr</h4>
                     <ul>
@@ -173,24 +206,6 @@
                         <li>Launch Chrome again</li>
                     </ul>
                     <p>Source: <a href="https://googlesystem.blogspot.com/2013/07/change-chromes-search-engine-to.html" target="_blank">Google Operating System</a></p>
-                    <br>
-                    <h4>encrypted.google.com</h4>
-                    <p>Update your default search engine to <a href="https://encrypted.google.com" target="_blank">encrypted.google.com</a>.</p>
-                    <ul>
-                        <li>Right click in the Chrome address bar / omnibox.</li>
-                        <li>Chose the "Edit search engines..." option.</li>
-                        <img style="border:1px dotted #777777" src="searchEngine1.jpg">
-                        <li>Edit your default search engine and set the search URL to:</li>
-                        <p><code>https://encrypted.google.com/search?hl=en&q=%s</code></p>
-                        <img style="border:1px dotted #777777" src="searchEngine2.jpg">
-                    </ul>
-                    <br>
-                    <h4>google.com/search?</h4>
-                    <p>Use google.com as default search engine (see above section on how to update the search engine).</p>
-                    <ul>
-                        <li>Edit your default search engine and set the search URL to:</li>
-                        <p><code>https://www.google.com/search?hl=en&q=%s&?gfe_rd=cr&gws_rd=cr</code></p>
-                    </ul>
                 </div>
             </div>
         </div>
