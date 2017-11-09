@@ -3,36 +3,6 @@
 // what:    does all the work for this extension
 // started: 2012.08.13
 // note:    see revisions.txt for changelog
-//
-// -- miscellaneous test URLs to run through before each new release:
-//  https://google.com
-//  http://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&ved=0CH4QFjAD&url=http%3A%2F%2Fwww.chronicles.no%2F2012%2F07%2Ftop-10-alternatives-to-gmail.html&ei=6KcyUI-wEcS5hAe9hIC4Aw&usg=AFQjCNFllV5QgNfwGHT6cwN8a0N2Ze07vQ&sig2=EKq3lPaLL1d4DosFQVJodw
-//  http://www.google.no/imgres?start=97&hl=en&client=firefox-a&hs=zxc&sa=X&rls=org.mozilla:en-US:official&biw=1280&bih=620&tbm=isch&prmd=imvns&tbnid=47Cjnrli_pYG2M:&imgrefurl=http://www.chronicles.no/2012/07/mont-blanc-10km-2012.html&docid=wRsjDboEn1XGRM&imgurl=http://3.bp.blogspot.com/-JUQP0mJaBl8/T_CSCtBgiNI/AAAAAAAACyM/Qi7xrBEtrSA/s1600/k009.png&w=983&h=650&ei=X2AwUP2NLOXe4QT-64CADQ&zoom=1&iact=hc&vpx=476&vpy=129&dur=4294&hovh=182&hovw=276&tx=174&ty=115&sig=103807963143718040267&page=5&tbnh=124&tbnw=170&ndsp=27&ved=1t:429,r:16,s:97,i:56
-//  http://www.google.pl/imgres?um=1&hl=pl&biw=1600&bih=775&tbm=isch&tbnid=oLFtTiAlda2ZdM:&imgrefurl=http://www.chronicles.no/2012/07/sommerstevne-ii-bislett-2012.html&docid=sE5MS_X81OPcGM&imgurl=http://3.bp.blogspot.com/-uOLBx1OnDBE/UAXwl8OpG-I/AAAAAAAADHo/fVl2RWtz2Co/s1600/allDone.jpg&w=1280&h=960&ei=4i0xUNLWCsjAtAa3-4CACw&zoom=1&iact=hc&vpx=517&vpy=470&dur=419&hovh=194&hovw=259&tx=163&ty=115&sig=104906337058271128867&page=1&tbnh=130&tbnw=184&start=0&ndsp=32&ved=1t:429,r:26,s:0,i:150
-//  http://google.co.uk/
-//  http://google.com.ua
-//  https://google.com.ua
-//  http://siljaifarta.blogspot.no/view/classic
-//  http://siljaifarta.blogspot.no
-//  http://siljaifarta.blogspot.co.uk/
-//  http://siljaifarta.blogspot.com.ua/
-//  http://cochinblogs-potpourri.blogspot.in/2012/03/google-has-given-in-to-political.html
-//  http://www.etvanligliv.blogspot.no/
-//  https://maps.google.no/maps/myplaces?ll=60.3976,5.3179&spn=0.020563,0.066047&ctz=-120&t=m&z=15
-//  https://maps.google.no
-//  https://maps.google.com
-//  https://www.google.no/maps/@59.9288516,10.7582299,15z
-//  https://www.google.no/maps?source=tldsi&hl=en&hl=en
-//  http://books.google.no/
-//  https://www.google.com/flights
-//  https://www.google.com/flights/
-//  https://www.google.com/flights/#
-//  https://www.google.no/flights/#search;f=OSL;t=MLA;d=2016-05-21;r=2016-05-25;md=540
-//  https://scholar.google.co.jp/
-//  https://scholar.google.com/
-//
-//  should NOT redirect:
-//  https://www.google.no/accounts/Logout2?hl=en-GB&service=mail&ile=1&ils=s.NO&ilc=5&continue=https%3A%2F%2Faccounts.google.com%2FServiceLogin%3Fservice%3Dmail%26passive%3Dtrue%26rm%3Dfalse%26continue%3Dhttps%3A%2F%2Fmail.google.com%2Fmail%2F%26ss%3D1%26scc%3D1%26ltmpl%3Ddefault%26ltmplcache%3D2%26hl%3Den-GB&zx=-644258560
 // -----------------------------------------------------------------
 
 // config variables
@@ -43,7 +13,7 @@ var tab_status_to_work_with             = "loading";                            
 
 // prints debugging messages
 function debug(message, status){
-    var doDebug = true;                                                                                                                    // if 'true' then print message, if 'false' do not
+    var doDebug = false;                                                                                                                    // if 'true' then print message, if 'false' do not
 
     if (doDebug){
         if (status === tab_status_to_work_with){                                                                                            // to minimise output when debugging, we can ignore printing for some tab statuses
