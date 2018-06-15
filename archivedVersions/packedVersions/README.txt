@@ -1,1 +1,0 @@
-i no longer keep packing versions of the extension. there is no need for this, as it is distributed through the official google chrome webstore.
